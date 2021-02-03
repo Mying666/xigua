@@ -56,10 +56,12 @@ window.onload = function () {
 		}
 
 		addEvents() {
-			window.onmousedown = (e) => {
-				const { offsetX } = e;
+      window.ontouchstart = (e) => {
+        const offsetX = e.targetTouches[0].pageX
 				if (!this.staticBall) return;
 				this.addBall(offsetX);
+      }
+			window.onmousedown = (e) => {
 			};
 
 			// 碰撞事件
